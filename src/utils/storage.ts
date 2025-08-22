@@ -1,6 +1,6 @@
 import { Pilot, Glider, Agent, FlightPackage, Reservation, User } from '../types';
 import { Weather, Equipment, Customer, Maintenance } from '../types';
-import { dummyPilots, dummyGliders, dummyAgents, dummyPackages, dummyReservations } from '../data/dummy';
+import { dummyPilots, dummyGliders, dummyAgents, dummyPackages, dummyReservations, dummyWeather, dummyEquipment, dummyCustomers, dummyMaintenance } from '../data/dummy';
 
 const STORAGE_KEYS = {
   PILOTS: 'paragliding_pilots',
