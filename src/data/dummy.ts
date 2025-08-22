@@ -1,4 +1,5 @@
 import { Pilot, Glider, Agent, FlightPackage, Reservation } from '../types';
+import { Weather, Equipment, Customer, Maintenance } from '../types';
 
 export const dummyPilots: Pilot[] = [
   {
@@ -185,5 +186,144 @@ export const dummyReservations: Reservation[] = [
     status: 'pending',
     totalPrice: 1000000,
     createdAt: '2025-01-13T09:15:00Z'
+  }
+];
+
+export const dummyWeather: Weather[] = [
+  {
+    id: '1',
+    date: '2025-01-15',
+    time: '08:00',
+    windSpeed: 12,
+    windDirection: 'NW',
+    temperature: 28,
+    humidity: 65,
+    visibility: 15,
+    conditions: 'good',
+    flyable: true,
+    notes: 'Kondisi baik untuk penerbangan pagi',
+    createdAt: '2025-01-15T08:00:00Z'
+  },
+  {
+    id: '2',
+    date: '2025-01-15',
+    time: '14:00',
+    windSpeed: 18,
+    windDirection: 'W',
+    temperature: 32,
+    humidity: 70,
+    visibility: 12,
+    conditions: 'fair',
+    flyable: true,
+    notes: 'Angin agak kencang, cocok untuk pilot berpengalaman',
+    createdAt: '2025-01-15T14:00:00Z'
+  }
+];
+
+export const dummyEquipment: Equipment[] = [
+  {
+    id: '1',
+    name: 'Helmet Pro X1',
+    type: 'helmet',
+    brand: 'Charly',
+    model: 'Insider',
+    serialNumber: 'CH-2023-001',
+    condition: 'excellent',
+    lastInspection: '2024-12-01',
+    nextInspection: '2025-06-01',
+    status: 'available'
+  },
+  {
+    id: '2',
+    name: 'Harness Comfort Plus',
+    type: 'harness',
+    brand: 'Advance',
+    model: 'Lightness 3',
+    serialNumber: 'ADV-2023-002',
+    condition: 'good',
+    lastInspection: '2024-11-15',
+    nextInspection: '2025-05-15',
+    status: 'in-use',
+    assignedTo: '1'
+  },
+  {
+    id: '3',
+    name: 'Reserve Parachute',
+    type: 'reserve',
+    brand: 'Gin',
+    model: 'Yeti Cross',
+    serialNumber: 'GIN-2023-003',
+    condition: 'excellent',
+    lastInspection: '2024-12-10',
+    nextInspection: '2025-06-10',
+    status: 'available'
+  }
+];
+
+export const dummyCustomers: Customer[] = [
+  {
+    id: '1',
+    name: 'John Smith',
+    email: 'john.smith@email.com',
+    phone: '+1-555-0123',
+    dateOfBirth: '1985-03-15',
+    weight: 75,
+    height: 175,
+    experience: 'none',
+    emergencyContact: {
+      name: 'Jane Smith',
+      phone: '+1-555-0124',
+      relationship: 'Wife'
+    },
+    totalFlights: 0,
+    createdAt: '2025-01-10T10:30:00Z'
+  },
+  {
+    id: '2',
+    name: 'Maria Garcia',
+    email: 'maria.garcia@email.com',
+    phone: '+34-600-123456',
+    dateOfBirth: '1990-07-22',
+    weight: 62,
+    height: 165,
+    experience: 'beginner',
+    emergencyContact: {
+      name: 'Carlos Garcia',
+      phone: '+34-600-123457',
+      relationship: 'Husband'
+    },
+    totalFlights: 3,
+    lastFlight: '2024-12-20',
+    createdAt: '2025-01-12T14:20:00Z'
+  }
+];
+
+export const dummyMaintenance: Maintenance[] = [
+  {
+    id: '1',
+    itemId: '1',
+    itemType: 'glider',
+    type: 'routine',
+    description: 'Pemeriksaan rutin bulanan - cek line, fabric, dan hardware',
+    performedBy: 'Ahmad Teknisi',
+    date: '2024-12-01',
+    cost: 500000,
+    nextDue: '2025-01-01',
+    status: 'completed',
+    notes: 'Semua komponen dalam kondisi baik',
+    createdAt: '2024-12-01T10:00:00Z'
+  },
+  {
+    id: '2',
+    itemId: '2',
+    itemType: 'equipment',
+    type: 'inspection',
+    description: 'Inspeksi harness dan sistem keselamatan',
+    performedBy: 'Budi Mekanik',
+    date: '2024-11-15',
+    cost: 200000,
+    nextDue: '2025-05-15',
+    status: 'completed',
+    createdAt: '2024-11-15T14:30:00Z'
   }
 ];

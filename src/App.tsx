@@ -9,6 +9,10 @@ import Settings from './pages/Settings';
 import Reservations from './pages/Reservations';
 import Reception from './pages/Reception';
 import Reports from './pages/Reports';
+import Weather from './pages/Weather';
+import Customers from './pages/Customers';
+import Equipment from './pages/Equipment';
+import Maintenance from './pages/Maintenance';
 
 function App() {
   const auth = useAuthProvider();
@@ -40,6 +44,10 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/reservations" element={<Reservations />} />
               <Route path="/reception" element={<Reception />} />
+              <Route path="/weather" element={<Weather />} />
+              <Route path="/customers" element={<Customers />} />
+              <Route path="/equipment" element={<Equipment />} />
+              <Route path="/maintenance" element={<Maintenance />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/reports" element={<Reports />} />
               <Route path="*" element={<Navigate to="/dashboard" replace />} />

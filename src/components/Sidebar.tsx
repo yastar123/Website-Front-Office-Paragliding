@@ -7,7 +7,11 @@ import {
   BarChart3, 
   LogOut,
   Plane,
-  Home
+  Home,
+  Cloud,
+  Wrench,
+  Users as UsersIcon,
+  Shield
 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 
@@ -19,6 +23,10 @@ const Sidebar: React.FC = () => {
     { name: 'Dashboard', href: '/dashboard', icon: Home },
     { name: 'Reservasi', href: '/reservations', icon: Calendar },
     { name: 'Resepsi', href: '/reception', icon: CheckSquare },
+    { name: 'Cuaca', href: '/weather', icon: Cloud },
+    { name: 'Pelanggan', href: '/customers', icon: UsersIcon },
+    { name: 'Peralatan', href: '/equipment', icon: Shield },
+    { name: 'Maintenance', href: '/maintenance', icon: Wrench },
     { name: 'Pengaturan', href: '/settings', icon: Settings },
     { name: 'Laporan', href: '/reports', icon: BarChart3 },
   ];

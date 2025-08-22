@@ -65,3 +65,68 @@ export interface DashboardStats {
   revenue: number;
   checkIns: number;
 }
+
+export interface Weather {
+  id: string;
+  date: string;
+  time: string;
+  windSpeed: number; // km/h
+  windDirection: string;
+  temperature: number; // celsius
+  humidity: number; // percentage
+  visibility: number; // km
+  conditions: 'excellent' | 'good' | 'fair' | 'poor' | 'dangerous';
+  flyable: boolean;
+  notes?: string;
+  createdAt: string;
+}
+
+export interface Equipment {
+  id: string;
+  name: string;
+  type: 'helmet' | 'harness' | 'reserve' | 'radio' | 'gps' | 'other';
+  brand: string;
+  model: string;
+  serialNumber: string;
+  condition: 'excellent' | 'good' | 'fair' | 'needs-repair';
+  lastInspection: string;
+  nextInspection: string;
+  status: 'available' | 'in-use' | 'maintenance' | 'retired';
+  assignedTo?: string; // pilot id
+}
+
+export interface Customer {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  dateOfBirth: string;
+  weight: number;
+  height: number;
+  experience: 'none' | 'beginner' | 'intermediate' | 'advanced';
+  medicalConditions?: string;
+  emergencyContact: {
+    name: string;
+    phone: string;
+    relationship: string;
+  };
+  totalFlights: number;
+  lastFlight?: string;
+  notes?: string;
+  createdAt: string;
+}
+
+export interface Maintenance {
+  id: string;
+  itemId: string;
+  itemType: 'glider' | 'equipment';
+  type: 'routine' | 'repair' | 'inspection' | 'replacement';
+  description: string;
+  performedBy: string;
+  date: string;
+  cost: number;
+  nextDue?: string;
+  status: 'completed' | 'in-progress' | 'scheduled';
+  notes?: string;
+  createdAt: string;
+}

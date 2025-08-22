@@ -1,4 +1,5 @@
 import { Pilot, Glider, Agent, FlightPackage, Reservation, User } from '../types';
+import { Weather, Equipment, Customer, Maintenance } from '../types';
 import { dummyPilots, dummyGliders, dummyAgents, dummyPackages, dummyReservations } from '../data/dummy';
 
 const STORAGE_KEYS = {
@@ -7,7 +8,11 @@ const STORAGE_KEYS = {
   AGENTS: 'paragliding_agents',
   PACKAGES: 'paragliding_packages',
   RESERVATIONS: 'paragliding_reservations',
-  USER: 'paragliding_user'
+  USER: 'paragliding_user',
+  WEATHER: 'paragliding_weather',
+  EQUIPMENT: 'paragliding_equipment',
+  CUSTOMERS: 'paragliding_customers',
+  MAINTENANCE: 'paragliding_maintenance'
 };
 
 export const initializeStorage = () => {
@@ -26,6 +31,18 @@ export const initializeStorage = () => {
   }
   if (!localStorage.getItem(STORAGE_KEYS.RESERVATIONS)) {
     localStorage.setItem(STORAGE_KEYS.RESERVATIONS, JSON.stringify(dummyReservations));
+  }
+  if (!localStorage.getItem(STORAGE_KEYS.WEATHER)) {
+    localStorage.setItem(STORAGE_KEYS.WEATHER, JSON.stringify([]));
+  }
+  if (!localStorage.getItem(STORAGE_KEYS.EQUIPMENT)) {
+    localStorage.setItem(STORAGE_KEYS.EQUIPMENT, JSON.stringify([]));
+  }
+  if (!localStorage.getItem(STORAGE_KEYS.CUSTOMERS)) {
+    localStorage.setItem(STORAGE_KEYS.CUSTOMERS, JSON.stringify([]));
+  }
+  if (!localStorage.getItem(STORAGE_KEYS.MAINTENANCE)) {
+    localStorage.setItem(STORAGE_KEYS.MAINTENANCE, JSON.stringify([]));
   }
 };
 
@@ -86,5 +103,41 @@ export const storageService = {
     } else {
       localStorage.removeItem(STORAGE_KEYS.USER);
     }
+  },
+
+  // Weather
+  getWeather: (): Weather[] => {
+    const data = localStorage.getItem(STORAGE_KEYS.WEATHER);
+    return data ? JSON.parse(data) : [];
+  },
+  saveWeather: (weather: Weather[]) => {
+    localStorage.setItem(STORAGE_KEYS.WEATHER, JSON.stringify(weather));
+  },
+
+  // Equipment
+  getEquipment: (): Equipment[] => {
+    const data = localStorage.getItem(STORAGE_KEYS.EQUIPMENT);
+    return data ? JSON.parse(data) : [];
+  },
+  saveEquipment: (equipment: Equipment[]) => {
+    localStorage.setItem(STORAGE_KEYS.EQUIPMENT, JSON.stringify(equipment));
+  },
+
+  // Customers
+  getCustomers: (): Customer[] => {
+    const data = localStorage.getItem(STORAGE_KEYS.CUSTOMERS);
+    return data ? JSON.parse(data) : [];
+  },
+  saveCustomers: (customers: Customer[]) => {
+    localStorage.setItem(STORAGE_KEYS.CUSTOMERS, JSON.stringify(customers));
+  },
+
+  // Maintenance
+  getMaintenance: (): Maintenance[] => {
+    const data = localStorage.getItem(STORAGE_KEYS.MAINTENANCE);
+    return data ? JSON.parse(data) : [];
+  },
+  saveMaintenance: (maintenance: Maintenance[]) => {
+    localStorage.setItem(STORAGE_KEYS.MAINTENANCE, JSON.stringify(maintenance));
   }
 };
